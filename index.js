@@ -14,6 +14,7 @@ const db = require('knex') ({
         database: 'cadastro'
     }
 })
+//console.log(db)
 // Dependencias
 const dependencies = {
     db
@@ -41,13 +42,4 @@ app.get('/', (req, res)=>{
   res.render('home')
 });
 
-
-connection.connect((err)=>{
-    if (err) console.log('Erro ao se conectar com o banco');
-    else{
-        console.log('Conectado ao banco');
-        app.listen(port, ()=> console.log('APP rodando na porta '+port));
-    }
-});
-  
-  
+app.listen(port, ()=> console.log('APP rodando na porta '+port));
