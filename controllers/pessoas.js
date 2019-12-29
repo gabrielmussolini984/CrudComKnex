@@ -9,14 +9,15 @@ const deletePessoa = async(db,req,res)=>{
   await pessoas.deletePessoa(db, req.params.id);
   res.redirect('/pessoas');
 }
-/*
+
 const criarPessoaForm = (req, res)=>{
   res.render('pessoas/criarPessoaForm');
 }
-const criarPessoa = async(connection,req,res) =>{
-  await pessoas.criarPessoa(connection, req.body);
+const criarPessoa = async(db,req,res) =>{
+  await pessoas.criarPessoa(db, req.body);
   res.redirect('/pessoas');
 }
+/*
 const editarPessoaForm = async (connection,req,res) =>{
   const resultado = await pessoas.findOne(connection,req.params.id);
   res.render('pessoas/editarPessoaForm', {resultado: resultado});
@@ -30,9 +31,9 @@ const editarPessoa = async(connection,req,res) =>{
 module.exports = {
   listaPessoas,
   deletePessoa,
-  /*
   criarPessoaForm,
   criarPessoa,
+  /*
   editarPessoaForm,
   editarPessoa*/
 }

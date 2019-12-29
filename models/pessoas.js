@@ -23,20 +23,11 @@ const findAll = async(db) =>{
   const deletePessoa = async(db, id) =>{
     return await db('pessoas').where({id: id}).del();
   };
-  /*
   // Criando Pessoas
-  const criarPessoa = (connection, data) =>{
-    return new Promise((resolve,reject)=>{
-      connection.query(`insert into pessoas (nome,nascimento,cargo) values('${data.nome}','${data.nascimento}','${data.cargo}')`, (err,results)=>{
-        if (err){
-          console.log(err)
-          reject(err);
-        }else{
-          resolve();
-        }
-      });
-    });
+  const criarPessoa = async(db, data) =>{
+    return await db('pessoas').insert({nome: data.nome, nascimento: data.nascimento, cargo: data.cargo});
   };
+  /*
   // Editando Pessoas
   const editarPessoa = (connection, id, data) =>{
     return new Promise((resolve,reject)=>{
@@ -54,7 +45,7 @@ const findAll = async(db) =>{
   module.exports = {
     findAll,
     /*findOne,*/
-    deletePessoa,/*
-    criarPessoa,
+    deletePessoa,
+    criarPessoa,/*
     editarPessoa*/
   }
