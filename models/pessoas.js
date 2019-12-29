@@ -1,9 +1,6 @@
 // Listando Pessoas
 const findAll = async(db) =>{
-  //console.log(db())
   const pessoas = await db('pessoas').select('*')
-  //console.log('knex',knex)
-  console.log(pessoas);
   return pessoas;
 };/*
   const findOne = (connection, id) =>{
@@ -21,18 +18,12 @@ const findAll = async(db) =>{
       });
     });
   };
+  */
   // Deletando Pessoas
-  const deletePessoa = (connection, id) =>{
-    return new Promise((resolve,reject)=>{
-      connection.query('delete from pessoas where id = '+id+' limit 1', (err, results)=>{
-        if (err){
-          reject(err);
-        }else{
-          resolve();
-        }
-      });
-    });
+  const deletePessoa = async(db, id) =>{
+    return await db('pessoas').where({id: id}).del();
   };
+  /*
   // Criando Pessoas
   const criarPessoa = (connection, data) =>{
     return new Promise((resolve,reject)=>{
@@ -61,9 +52,9 @@ const findAll = async(db) =>{
   };*/
   // Exportando Funções.
   module.exports = {
-    findAll
-    /*findOne,
-    deletePessoa,
+    findAll,
+    /*findOne,*/
+    deletePessoa,/*
     criarPessoa,
     editarPessoa*/
   }

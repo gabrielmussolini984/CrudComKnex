@@ -3,13 +3,13 @@ const pessoas = require('../models/pessoas');
 // Listando
 const listaPessoas = async(db,req,res)=>{
   const resultado = await pessoas.findAll(db); 
-  console.log(resultado)
   res.render('pessoas/listaPessoas', {resultado})
-}/*
-const deletePessoa = async(connection,req,res)=>{
-  await pessoas.deletePessoa(connection, req.params.id);
+}
+const deletePessoa = async(db,req,res)=>{
+  await pessoas.deletePessoa(db, req.params.id);
   res.redirect('/pessoas');
 }
+/*
 const criarPessoaForm = (req, res)=>{
   res.render('pessoas/criarPessoaForm');
 }
@@ -28,8 +28,9 @@ const editarPessoa = async(connection,req,res) =>{
 */
 
 module.exports = {
-  listaPessoas
-  /*deletePessoa,
+  listaPessoas,
+  deletePessoa,
+  /*
   criarPessoaForm,
   criarPessoa,
   editarPessoaForm,

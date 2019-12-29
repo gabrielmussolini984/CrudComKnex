@@ -4,7 +4,7 @@ const handlebars = require('express-handlebars');
 const bodyParser = require('body-parser');
 const path = require('path');
 
-// Conectando ao banco
+// Conectando ao banco, por enquanto aqui, pórém será variavel de ambiente
 const db = require('knex') ({
     client: 'mysql2',
     connection: {
@@ -19,7 +19,6 @@ const db = require('knex') ({
 const dependencies = {
     db
 }
-
 // Inicializando o APP
 const app = express();
 // Configurando Porta
